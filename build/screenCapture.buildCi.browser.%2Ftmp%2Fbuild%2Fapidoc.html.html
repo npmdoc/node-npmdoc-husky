@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/typicode/husky"
-
-    >husky (v0.13.3)</a>
+    <a href="https://github.com/typicode/husky">husky (v0.13.3)</a>
 </h1>
 <h4>Prevents bad commit or push (git hooks, pre-commit/precommit, pre-push/prepush, post-merge/postmerge and all that stuff...)</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.husky">module husky</a><ol>
 
@@ -96,11 +89,11 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function installFrom(huskyDir) {
   try {
-    var isInSubNodeModule = (huskyDir.match(/node_modules/g) || []).length &#x3e; 1
+    var isInSubNodeModule = (huskyDir.match(/node_modules/g) || []).length &gt; 1
     if (isInSubNodeModule) {
       return console.log(
-        &#x27;Trying to install from sub \&#x27;node_module\&#x27; directory,&#x27;,
-        &#x27;skipping Git hooks installation&#x27;
+        'Trying to install from sub \'node_module\' directory,',
+        'skipping Git hooks installation'
       )
     }
 
@@ -108,25 +101,25 @@
 
     if (hooksDir) {
       hooks.forEach(function (hookName) {
-        var npmScriptName = hookName.replace(/-/g, &#x27;&#x27;)
+        var npmScriptName = hookName.replace(/-/g, '')
         createHook(huskyDir, hooksDir, hookName, npmScriptName)
       })
-      console.log(&#x27;done\n&#x27;)
+      console.log('done\n')
     } else {
-      console.log(&#x27;Can\&#x27;t find .git directory, skipping Git hooks installation&#x27;)
+      console.log('Can\'t find .git directory, skipping Git hooks installation')
     }
   } catch (e) {
     console.error(e)
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  console.log(&#x27;CI detected, skipping Git hooks installation&#x27;)
+  console.log('CI detected, skipping Git hooks installation')
   process.exit(0)
 }
 
-console.log(&#x27;setting up hooks&#x27;)
+console.log('setting up hooks')
 
-var huskyDir = path.join(__dirname, &#x27;..&#x27;)
+var huskyDir = path.join(__dirname, '..')
 husky.<span class="apidocCodeKeywordSpan">installFrom</span>(huskyDir)
 ...</pre></li>
     </ul>
@@ -147,19 +140,19 @@ husky.<span class="apidocCodeKeywordSpan">installFrom</span>(huskyDir)
     hooks.forEach(function (hookName) {
       removeHook(hooksDir, hookName)
     })
-    console.log(&#x27;done\n&#x27;)
+    console.log('done\n')
   } catch (e) {
     console.error(e)
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-var chalk = require(&#x27;chalk&#x27;)
-var husky = require(&#x27;../src/&#x27;)
+var chalk = require('chalk')
+var husky = require('../src/')
 
-console.log(chalk.cyan.underline(&#x27;husky&#x27;))
-console.log(&#x27;uninstalling&#x27;)
+console.log(chalk.cyan.underline('husky'))
+console.log('uninstalling')
 
-var huskyDir = path.join(__dirname, &#x27;..&#x27;)
+var huskyDir = path.join(__dirname, '..')
 husky.<span class="apidocCodeKeywordSpan">uninstallFrom</span>(huskyDir)
 ...</pre></li>
     </ul>
@@ -173,3 +166,4 @@ husky.<span class="apidocCodeKeywordSpan">uninstallFrom</span>(huskyDir)
     ]
 </div>
 </div>
+</body></html>

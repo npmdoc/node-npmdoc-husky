@@ -119,7 +119,16 @@
     console.error(e)
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  console.log(&#x27;CI detected, skipping Git hooks installation&#x27;)
+  process.exit(0)
+}
+
+console.log(&#x27;setting up hooks&#x27;)
+
+var huskyDir = path.join(__dirname, &#x27;..&#x27;)
+husky.<span class="apidocCodeKeywordSpan">installFrom</span>(huskyDir)
+...</pre></li>
     </ul>
 
 
@@ -143,7 +152,16 @@
     console.error(e)
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var chalk = require(&#x27;chalk&#x27;)
+var husky = require(&#x27;../src/&#x27;)
+
+console.log(chalk.cyan.underline(&#x27;husky&#x27;))
+console.log(&#x27;uninstalling&#x27;)
+
+var huskyDir = path.join(__dirname, &#x27;..&#x27;)
+husky.<span class="apidocCodeKeywordSpan">uninstallFrom</span>(huskyDir)
+...</pre></li>
     </ul>
 
 
