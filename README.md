@@ -1,9 +1,14 @@
-# api documentation for  [husky (v0.13.3)](https://github.com/typicode/husky)  [![npm package](https://img.shields.io/npm/v/npmdoc-husky.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-husky) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-husky.svg)](https://travis-ci.org/npmdoc/node-npmdoc-husky)
+# npmdoc-husky
+
+#### api documentation for  [husky (v0.13.3)](https://github.com/typicode/husky)  [![npm package](https://img.shields.io/npm/v/npmdoc-husky.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-husky) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-husky.svg)](https://travis-ci.org/npmdoc/node-npmdoc-husky)
+
 #### Prevents bad commit or push (git hooks, pre-commit/precommit, pre-push/prepush, post-merge/postmerge and all that stuff...)
 
 [![NPM](https://nodei.co/npm/husky.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/husky)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-husky/build/screenCapture.buildCi.browser.apidoc.html.png)](https://npmdoc.github.io/node-npmdoc-husky/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-husky/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-husky/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-husky/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-husky/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-husky/build/screenCapture.npmPackageListing.svg)
 
@@ -83,75 +88,9 @@
             "mocha": true
         }
     },
-    "version": "0.13.3"
+    "version": "0.13.3",
+    "bin": {}
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module husky](#apidoc.module.husky)
-1.  [function <span class="apidocSignatureSpan">husky.</span>installFrom (huskyDir)](#apidoc.element.husky.installFrom)
-1.  [function <span class="apidocSignatureSpan">husky.</span>uninstallFrom (huskyDir)](#apidoc.element.husky.uninstallFrom)
-
-
-
-# <a name="apidoc.module.husky"></a>[module husky](#apidoc.module.husky)
-
-#### <a name="apidoc.element.husky.installFrom"></a>[function <span class="apidocSignatureSpan">husky.</span>installFrom (huskyDir)](#apidoc.element.husky.installFrom)
-- description and source-code
-```javascript
-function installFrom(huskyDir) {
-  try {
-    var isInSubNodeModule = (huskyDir.match(/node_modules/g) || []).length > 1
-    if (isInSubNodeModule) {
-      return console.log(
-        'Trying to install from sub \'node_module\' directory,',
-        'skipping Git hooks installation'
-      )
-    }
-
-    var hooksDir = findHooksDir(huskyDir)
-
-    if (hooksDir) {
-      hooks.forEach(function (hookName) {
-        var npmScriptName = hookName.replace(/-/g, '')
-        createHook(huskyDir, hooksDir, hookName, npmScriptName)
-      })
-      console.log('done\n')
-    } else {
-      console.log('Can\'t find .git directory, skipping Git hooks installation')
-    }
-  } catch (e) {
-    console.error(e)
-  }
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.husky.uninstallFrom"></a>[function <span class="apidocSignatureSpan">husky.</span>uninstallFrom (huskyDir)](#apidoc.element.husky.uninstallFrom)
-- description and source-code
-```javascript
-function uninstallFrom(huskyDir) {
-  try {
-    var hooksDir = findHooksDir(huskyDir)
-
-    hooks.forEach(function (hookName) {
-      removeHook(hooksDir, hookName)
-    })
-    console.log('done\n')
-  } catch (e) {
-    console.error(e)
-  }
-}
-```
-- example usage
-```shell
-n/a
 ```
 
 
